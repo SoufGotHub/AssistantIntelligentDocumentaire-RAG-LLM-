@@ -1,0 +1,6 @@
+numpy
+PyMuPDF
+faiss-cpu
+sentence-transformers
+transformers
+torch

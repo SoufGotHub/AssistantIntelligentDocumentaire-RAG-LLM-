@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: assistant-intelligent-documentaire
+    working_dir: /app
+    volumes:
+      - ./data:/app/data
+      - ./src:/app/src
+    command: python src/rag_pipeline.py
