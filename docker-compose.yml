@@ -7,3 +7,14 @@ services:
       - ./data:/app/data
       - ./src:/app/src
     command: python src/rag_pipeline.py
+
+  chatbot:
+    build: .
+    container_name: assistant-intelligent-documentaire-chatbot
+    working_dir: /app
+    volumes:
+      - ./data:/app/data
+      - ./src:/app/src
+    ports:
+      - "8501:8501"
+    command: streamlit run src/chatbot_app.py --server.address 0.0.0.0 --server.port 8501

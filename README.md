@@ -17,6 +17,8 @@ src/
   vector_store.py
   build_index.py
   rag_pipeline.py
+  chatbot_backend.py
+  chatbot_app.py
 data/
   raw_pdfs/
   processed/
@@ -59,6 +61,20 @@ python src/build_index.py
 python src/rag_pipeline.py
 ```
 
+## Run Chatbot UI (Local)
+
+After building the index, start the web interface:
+
+```bash
+streamlit run src/chatbot_app.py
+```
+
+Then open:
+
+```text
+http://localhost:8501
+```
+
 ## Run With Docker
 
 Build image:
@@ -79,7 +95,13 @@ Run pipeline:
 docker compose run --rm app python src/rag_pipeline.py
 ```
 
+Run chatbot web app:
+
+```bash
+docker compose up chatbot
+```
+
 ## Notes
 
-- The default generation model is `gpt2` in `src/rag_pipeline.py`.
+- The default generation model is `Qwen/Qwen2.5-1.5B-Instruct` in `src/rag_pipeline.py`.
 - You may see Hugging Face warnings about unauthenticated requests; setting `HF_TOKEN` is optional but can improve download limits.

@@ -11,4 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY src ./src
 COPY data ./data
 
+EXPOSE 8501
+
 CMD ["python", "src/rag_pipeline.py"]
